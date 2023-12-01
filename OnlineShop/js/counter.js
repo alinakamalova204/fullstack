@@ -22,10 +22,13 @@ window.addEventListener('click',function (event) {
             //проверка товара в корзине и нажатие кнопки минуса в корзине
         } else if (event.target.closest('.cart-wrapper') && parseInt(counter.innerText) === 1){
             event.target.closest('.cart-item').remove();
+
+            toggleCartStatus();
         }
     }
     if (event.target.dataset.action === 'remove'){
-        console.log('remove')
         event.target.closest('.cart-item').remove();
+
+        toggleCartStatus();
     }
 });

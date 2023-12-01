@@ -58,6 +58,9 @@ window.addEventListener('click', function (event) {
             //отобразим в корзине
             cartWrapper.insertAdjacentHTML('beforeend', cartItem);
         }
-
+        //сбрасываем счетчик добавленного товара на 1
+        card.querySelector('[data-counter]').innerText = '1';
+//отображение статуса корзины пустая или полная
+        toggleCartStatus();
     }
 })
