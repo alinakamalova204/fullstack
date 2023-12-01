@@ -2,7 +2,7 @@ const cartWrapper = document.querySelector('.cart-wrapper');
 //добавление товара в корзину
 window.addEventListener('click', function (event) {
     //проверка что клик по кнопке "в корзину"
-    if (event.target.hasAttribute('data-cart')){
+    if (event.target.hasAttribute('data-cart')) {
         //находим карту товара внутри которой был совершен клик
         const card = event.target.closest('.card');
 
@@ -17,7 +17,16 @@ window.addEventListener('click', function (event) {
             counter: card.querySelector('[data-counter]').innerText
         };
 
-        const cartItem = `<div class="cart-item" data-id="${productInfo.id}">
+        //проверим наличие товра уже в корзине. чтобы не дублировать одинаковые элементы
+        const itemInCart = cartWrapper.querySelector(`[data-id="${productInfo.id}"]`);
+
+
+        //если товар уже в корзине
+        if (itemInCart) {
+            const countElem = itemInCart.querySelector('[data-counter]');
+            countElem.innerText = parseInt(countElem.innerText) + parseInt(productInfo.counter);
+        } else {
+            const cartItem = `<div class="cart-item" data-id="${productInfo.id}">
                                 <div class="cart-item__top">
                                     <div class="cart-item__img">
                                         <img src="${productInfo.imgSrc}" alt="">
@@ -38,14 +47,17 @@ window.addEventListener('click', function (event) {
                                             <div class="price">
                                                 <div class="price__currency">${productInfo.price}</div>
                                             </div>
-
                                         </div>
                                         <!-- // cart-item__details -->
-
+                                            <div class="remove-cart">
+                                                <button class="btn-remove" data-action="remove">Удалить</button>
+                                            </div>
                                     </div>
                                 </div>
                             </div>`;
-        //отобразим в корзине
-        cartWrapper.insertAdjacentHTML('beforeend', cartItem);
+            //отобразим в корзине
+            cartWrapper.insertAdjacentHTML('beforeend', cartItem);
+        }
+
     }
 })
