@@ -9,11 +9,13 @@ window.addEventListener('click',function (event) {
         const counterWrapper = event.target.closest('.counter-wrapper');
         counter = counterWrapper.querySelector('[data-counter]');
     }
+
     if (event.target.dataset.action === 'plus'){
         //сделано для любого плюса
         counter.innerText = ++counter.innerText;
 
     }
+
     if (event.target.dataset.action === 'minus'){
         //умеьшение колва для любого минуса на странице
         if (parseInt(counter.innerText) > 1){
@@ -24,11 +26,19 @@ window.addEventListener('click',function (event) {
             event.target.closest('.cart-item').remove();
 
             toggleCartStatus();
+            priceFoodAndDelivery();
         }
     }
+
     if (event.target.dataset.action === 'remove'){
         event.target.closest('.cart-item').remove();
 
         toggleCartStatus();
+        priceFoodAndDelivery();
+    }
+
+    //проверяем клик на + или - внутри корзины
+    if (event.target.hasAttribute('data-action') && event.target.closest('.cart-wrapper')){
+        priceFoodAndDelivery();
     }
 });

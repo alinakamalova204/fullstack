@@ -1,3 +1,4 @@
+//корзина пуста или нет значок
 function toggleCartStatus(){
     const cartWrapper = document.querySelector('.cart-wrapper');
     const cartEmpty = document.querySelector('[data-cart-empty]');

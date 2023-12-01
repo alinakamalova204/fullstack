@@ -62,5 +62,7 @@ window.addEventListener('click', function (event) {
         card.querySelector('[data-counter]').innerText = '1';
 //отображение статуса корзины пустая или полная
         toggleCartStatus();
+        //пересчет стоимости
+        priceFoodAndDelivery();
     }
 })
