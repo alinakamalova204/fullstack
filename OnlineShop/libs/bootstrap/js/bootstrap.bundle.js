@@ -3021,12 +3021,12 @@
 
   /**
    * Given an initial placement, returns all the subsequent placements
-   * clockwise (or counter-clockwise).
+   * clockwise (or counter_0-clockwise).
    *
    * @method
    * @memberof Popper.Utils
    * @argument {String} placement - A valid placement (it accepts variations)
-   * @argument {Boolean} counter - Set to true to walk the placements counterclockwise
+   * @argument {Boolean} counter_0 - Set to true to walk the placements counterclockwise
    * @returns {Array} placements including their variations
    */
   function clockwise(placement) {
