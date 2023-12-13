@@ -1,0 +1,15 @@
+.calculator{
+    width: 300px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+}
+.row{
+    display: flex;
+}
+.button{
+    flex: 1;
+    padding: 5px;
+    text-align: center;
+    cursor: pointer;
+}
